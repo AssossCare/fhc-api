@@ -68,6 +68,9 @@ export class fhcVaccinnetApi {
     patientDateOfBirth: number,
     softwareId: string,
     vaccinnetId: string,
+    hcpSupervisorNihii?: string,
+    hcpSupervisorName?: string,
+    hcpSupervisorQuality?: string,
     body?: Array<VaccineInjection>
   ): Promise<AddVaccinationsResponseType> {
     let _body = null
@@ -81,6 +84,15 @@ export class fhcVaccinnetApi {
       (hcpNihii ? "&hcpNihii=" + encodeURIComponent(String(hcpNihii)) : "") +
       (hcpName ? "&hcpName=" + encodeURIComponent(String(hcpName)) : "") +
       (hcpQuality ? "&hcpQuality=" + encodeURIComponent(String(hcpQuality)) : "") +
+      (hcpSupervisorQuality
+        ? "&hcpSupervisorQuality=" + encodeURIComponent(String(hcpSupervisorQuality))
+        : "") +
+      (hcpSupervisorNihii
+        ? "&hcpSupervisorNihii=" + encodeURIComponent(String(hcpSupervisorNihii))
+        : "") +
+      (hcpSupervisorName
+        ? "&hcpSupervisorName=" + encodeURIComponent(String(hcpSupervisorName))
+        : "") +
       (patientFirstName
         ? "&patientFirstName=" + encodeURIComponent(String(patientFirstName))
         : "") +
